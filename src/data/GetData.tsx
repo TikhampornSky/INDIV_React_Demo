@@ -15,25 +15,11 @@ function DataFetching () {
 
     //console.log('Data is ', posts)          //posts is object
 
-    const DataContext = createContext(posts)
-    //console.log("Calling... ", DataContext)
-
     return (
-        DataContext
+        //createContext<IThemeContext>(posts)
+        createContext(posts)
     )
-    /*
-    return (
-        <div>
-            <div>{JSON.stringify(posts)}</div> 
-            <h1> Getting New Data </h1>
-            <div>
-            {posts.map(function(data, id){
-                return (<li key={id}>{data.title} { '-->' } {data.body}</li>)
-            })}
-            </div>
-        </div>
-    )
-    */
 }
+
 
 export default DataFetching

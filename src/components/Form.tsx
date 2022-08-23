@@ -13,7 +13,7 @@ const Form: FC<Props> = ({ seriesList, setSeriesList }) => {         //FC<Props>
     const [imdb, setImdb] = useState<SeriesProps | any>(0)
     const [seasons, setSeasons] = useState<SeriesProps | any>(0)        //<SeriesProps | any> = set type to be "Any"
 
-    console.log(name, genre, cover, imdb, seasons)
+    //console.log(name, genre, cover, imdb, seasons)
 
     const setNameinputHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value)

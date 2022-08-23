@@ -2,6 +2,8 @@ import React, {useState } from 'react';
 import { SeriesProps } from './interfaces/SeriesProps';
 import List from './components/List'
 import Form from './components/Form'
+//import GetData from './data/GetData';
+//import ThemeContext from './data/DataContext';
 import DataShow from './data/ShowData'
 import './App.css';
 
@@ -11,8 +13,19 @@ function App() {
 
   return (
     <div className="App">
-      <DataShow />
-      { /* <DataFetching /> */ }
+      <DataShow /> 
+      {/*
+      <ThemeContext.Provider value={
+        [{
+          id: 0, 
+          userId: 0, 
+          title: '', 
+          body: ''
+        }]
+      }>
+        <DataShow /> 
+      </ThemeContext.Provider>
+      */}
       <h1>My Favourite TY Series</h1>
       <Form seriesList={seriesList} setSeriesList={setSeriesList}/>        
       <List seriesList={seriesList} />

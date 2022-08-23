@@ -1,24 +1,35 @@
 import {useContext} from "react";
-//import axios from 'axios'
 import DataFetching from "./GetData";
+//import ThemeContext from './DataContext'
+//import axios from 'axios'
 
 function DataShow () {
     const MyData = useContext(DataFetching())
-    console.log("value hey hey ", MyData)
-
+    //console.log("value hey hey ", MyData)
     return (
         <div>
-            {MyData.map(function(data, id){
-                return (
-                    <div>
-                        <p>{data.id} {   } {data.title}</p>
-                        <li key={id}>{data.body}</li>
-                        <hr></hr>
-                    </div>
+            {MyData.map((data) => 
+                <div key= {data.id}>
+                    <p>{data.id} { '-->' } {data.title}</p>
+                    <li> {data.body} </li>
+                    <hr></hr>
+                </div>
                 )
-            })}
+            }
         </div>
     )
 }
 
+/*
+function DataShow() {
+    const MyData = useContext(DataFetching())
+    console.log(typeof(MyData))
+    console.log(MyData)
+    return (
+        <div>
+            <p> Hello Showing </p>
+        </div>
+    )
+}
+*/
 export default DataShow
