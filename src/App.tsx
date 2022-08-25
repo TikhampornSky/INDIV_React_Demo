@@ -5,6 +5,7 @@ import Form from './components/Form'
 //import GetData from './data/GetData';
 //import ThemeContext from './data/DataContext';
 import DataShow from './data/ShowData'
+import DataPost from './data/SendData'
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <DataPost/>
       <DataShow /> 
       {/*
       <ThemeContext.Provider value={
