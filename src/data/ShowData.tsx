@@ -6,6 +6,7 @@ import DataFetching from "./GetData";
 function DataShow () {
     const MyData = useContext(DataFetching())
     //console.log("value hey hey ", MyData)
+    console.log(Array.isArray(MyData))
     return (
         <div>
             {MyData.map((data) => 

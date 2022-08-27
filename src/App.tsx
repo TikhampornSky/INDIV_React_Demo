@@ -8,6 +8,15 @@ import DataShow from './data/ShowData'
 import DataPost from './data/SendData'
 import './App.css';
 
+import { observable, autorun } from 'mobx';             //ติดตามการเปลี่ยนแปลงของข้อมูล
+let state = observable({
+  name: ''
+})
+autorun(() => {
+  console.log(state.name);
+})
+state.name = 'Golf';
+
 function App() {
 
   const [seriesList, setSeriesList] = useState<SeriesProps["seriesList"]>([])     //<SeriesProps["seriesList"]> คือ การเรียกใช้ interface โดยเรียกใช้ตัวไหนให้ระบุใน []

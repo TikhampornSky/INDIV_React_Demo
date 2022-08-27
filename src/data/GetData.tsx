@@ -1,4 +1,5 @@
-import {useState, useEffect, createContext} from "react";
+import {useState, useEffect, createContext} from "react"
+//import DataContext from '../interfaces/DataContext'
 //import axios from 'axios'
 
 function DataFetching () {
@@ -14,9 +15,9 @@ function DataFetching () {
     }, [])
 
     //console.log('Data is ', posts)          //posts is object
-
+    //console.log("Posts type", typeof(posts))
     return (
-        //createContext<IThemeContext>(posts)
+        //React.createContext<DataContext>(posts[0])
         createContext(posts)
     )
 }

@@ -1,14 +1,11 @@
-import {createContext} from 'react';
-import GetData from './GetData'
-
-interface IThemeContext {
-    [index: number]: {              //Array with object
+interface DataContext {
         id: number,
         userId: number,
         title: string,
         body: string
-    }
 }
+
+//interface DataContext extends Array<DataContext>{}
 /*
 const defaultState = [{
     id: 0, 
@@ -19,4 +16,4 @@ const defaultState = [{
 */
 //const ThemeContext = createContext<IThemeContext>(GetData);
 
-//export default ThemeContext
+export default DataContext
