@@ -1,27 +1,33 @@
 import { observable, runInAction, makeObservable } from 'mobx';
-import CountryService from './CountryService'
+import CourseService from './CourseService'
+
+//create a Store and inject our service through Store’s constructor. 
+//Store is a place where you keep your reusable logic and application’s UI state that will be used by your components.
 
 class CountryStore {
+    CourseService
     constructor(){
-    this.countryService = new CountryService();
+        this.CourseService = new CourseService();
     }
-    countryData = {
-        model: []
+    courseData = {
+        model: [],
+        pageNumber: 0,
+        isAscending: false,
     };
     status = "initial";
     searchQuery = "";
 
-    getCountriesAsync = async () => {
+    getCourseAsync = async () => {
         try {
             var params = {
-                pageNumber: this.countryData.pageNumber,
+                pageNumber: this.courseData.pageNumber,
                 searchQuery: this.searchQuery,
-                isAscending: this.countryData.isAscending
+                isAscending: this.courseData.isAscending
             };
             const urlParams = new URLSearchParams(Object.entries(params));
-            const data = await this.countryService.get(urlParams)
+            const data = await this.CourseService.get(urlParams)
             runInAction(() => {
-                this.countryData = data;
+                this.courseData = data;
             });
         } catch (error) {
             runInAction(() => {
@@ -29,9 +35,9 @@ class CountryStore {
             });
         }
     };
-    createCountryAsync = async (model) => {
+    createCourseAsync = async (model:any) => {
         try {
-            const response = await this.countryService.post(model);
+            const response = await this.CourseService.post(model);
             if (response.status === 201) {
                 runInAction(() => {
                     this.status = "success";
@@ -44,9 +50,9 @@ class CountryStore {
         }
 
     };
-    updateCountryAsync = async (vehicle) => {
+    updateCourseAsync = async (vehicle:string) => {
         try {
-            const response = await this.countryService.put(vehicle)
+            const response = await this.CourseService.put(vehicle)
             if (response.status === 200) {
                 runInAction(() => {
                     this.status = "success";
@@ -58,9 +64,9 @@ class CountryStore {
             });
         }
     };
-    deleteCountryAsync = async (id) => {
+    deleteCourseAsync = async (id:number) => {
         try {
-            const response = await this.countryService.delete(id);
+            const response = await this.CourseService.delete(id);
             if (response.status === 204) {
                 runInAction(() => {
                     this.status = "success";
@@ -75,9 +81,9 @@ class CountryStore {
 }
 
 makeObservable(CountryStore, {
-countryData: observable,
-searchQuery: observable,
-status: observable
+    courseData: observable,
+    searchQuery: observable,
+    status: observable
 });
 
 export default new CountryStore();
