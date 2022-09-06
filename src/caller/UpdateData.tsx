@@ -18,6 +18,7 @@ function DataUpdate (id: number) {
 
     updateHandle();
     
+    //res.data.json;
     return (
         statusUPDATE
     )
