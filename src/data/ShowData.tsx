@@ -6,7 +6,12 @@ import DataFetching from "../caller/GetData";
 function DataShow () {
     const MyData = useContext(DataFetching())
     //console.log("value hey hey ", MyData)
-    console.log(Array.isArray(MyData))
+    //console.log("==> ", MyData[0].body)
+    if (MyData[0].body === "") {
+        return (
+            <div> Loading Data... </div>
+        )
+    }
     return (
         <div>
             {MyData.map((data) => 

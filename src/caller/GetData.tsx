@@ -13,6 +13,9 @@ function DataFetching () {
         .catch(err => console.log(err))   
     }, [])
 
+    //if (loading || !data) return "Loading..."
+    //if (error) return error
+
     //console.log('Data is ', posts)          //posts is object
     //console.log("Posts type", typeof(posts))
     return (
