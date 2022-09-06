@@ -1,4 +1,4 @@
-import PostData from './PostData'
+import PostData from '../caller/PostData'
 //import ThemeContext from './DataContext'
 //import axios from 'axios'
 
@@ -18,6 +18,7 @@ function DataSend (title:string, body:string) {
         </div>
     )
 }
+
 
 function DataPost() {               //สมมติว่า User Post ข้อมูลแบบนี้
     return DataSend("Tontan Tomato1234", "gcvdghvnsvgshbxbhstasgdbsbhxwnsysg24525`guhwjsbjhdbhjxbjbajsbkbaksb")

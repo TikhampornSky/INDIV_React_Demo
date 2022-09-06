@@ -5,7 +5,10 @@ import Form from './components/Form'
 //import GetData from './data/GetData';
 //import ThemeContext from './data/DataContext';
 import DataShow from './data/ShowData'
-import DataPost from './data/SendData'
+import DataPost from './data/SendData_post'
+import DataUpdateCall from './data/SendData_update'
+import DataDeleteCall from './data/SendData_delete'
+
 import './App.css';
 
 import { observable, autorun } from 'mobx';             //ติดตามการเปลี่ยนแปลงของข้อมูล
@@ -23,6 +26,8 @@ function App() {
 
   return (
     <div className="App">
+      <DataDeleteCall/>
+      <DataUpdateCall/>
       <DataPost/>
       <DataShow /> 
       {/*

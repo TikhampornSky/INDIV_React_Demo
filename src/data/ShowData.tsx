@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import DataFetching from "./GetData";
+import DataFetching from "../caller/GetData";
 //import ThemeContext from './DataContext'
 //import axios from 'axios'
 

@@ -4,6 +4,7 @@ import CourseService from './CourseService'
 //create a Store and inject our service through Store’s constructor. 
 //Store is a place where you keep your reusable logic and application’s UI state that will be used by your components.
 
+/*
 class CountryStore {
     CourseService
     constructor(){
@@ -87,3 +88,4 @@ makeObservable(CountryStore, {
 });
 
 export default new CountryStore();
+*/
