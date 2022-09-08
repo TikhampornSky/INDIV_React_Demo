@@ -1,4 +1,4 @@
-interface DataContext {
+interface Post {
         id: number,
         userId: number,
         title: string,
@@ -16,4 +16,4 @@ const defaultState = [{
 */
 //const ThemeContext = createContext<IThemeContext>(GetData);
 
-export default DataContext
+export default Post

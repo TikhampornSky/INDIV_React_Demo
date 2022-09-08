@@ -1,4 +1,4 @@
-import DataUpdate from '../caller/UpdateData'
+import DataUpdate from '../services/UpdateData'
 //import ThemeContext from './DataContext'
 //import axios from 'axios'
 

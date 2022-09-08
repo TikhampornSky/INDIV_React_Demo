@@ -1,4 +1,4 @@
-import DataDelete from '../caller/DeleteData'
+import DataDelete from '../services/DeleteData'
 //import ThemeContext from './DataContext'
 //import axios from 'axios'
 

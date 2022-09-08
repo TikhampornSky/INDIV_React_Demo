@@ -4,10 +4,10 @@ import List from './components/List'
 import Form from './components/Form'
 //import GetData from './data/GetData';
 //import ThemeContext from './data/DataContext';
-import DataShow from './data/ShowData'
-import DataPost from './data/SendData_post'
-import DataUpdateCall from './data/SendData_update'
-import DataDeleteCall from './data/SendData_delete'
+import DataShow from './pages/ShowData'
+import DataPost from './pages/SendData_post'
+import DataUpdateCall from './pages/SendData_update'
+import DataDeleteCall from './pages/SendData_delete'
 
 import './App.css';
 
