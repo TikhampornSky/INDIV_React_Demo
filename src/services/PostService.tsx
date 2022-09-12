@@ -10,11 +10,11 @@ class PostService {
     }
 
     async getPosts(){
-        const response =  await axios.get('https://jsonplaceholder.typicode.com/posts')            //get<Type>  <--------
-        return response.data
+        const response =  await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+        return response.data.slice(0,10)
     }
 
-        /*
+    /*
     useEffect(() => {                         //use Effect จะถูกใช้เมื่อการ Render Component
         axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(res => {

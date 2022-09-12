@@ -5,14 +5,14 @@ import Post from "../interfaces/Post";
 //import ThemeContext from './DataContext'
 //import axios from 'axios'
 
-function DataShow () {                      //ให้รับพารามิเตอร์มา แล้วใช้เลย   <-------------------------
+function DataStore () {                     
     const postService = useContext(postServiceContext)
     const [posts, setPosts] = useState<Post[]>([{id: 0, userId: 0, title: '', body: ''}])
     useEffect(() => {                         //use Effect จะถูกใช้เมื่อการ Render Component
         test()
     }, [])
 
-    const test = async () => {                  // ย้ายไปไฟล์อื่น           <-----------------------
+    const test = async () => {
         const posts = await postService.getPosts()
         setPosts(posts)
         //console.log("--> ", posts)
@@ -22,16 +22,7 @@ function DataShow () {                      //ให้รับพาราม�
     }
 
     return (
-        <div>
-            {posts.map((postData: Post) => (
-                <div key= {postData.id}>
-                    <p>{postData.id} { '-->' } {postData.title}</p>
-                    <li> {postData.body} </li>
-                <hr></hr>
-            </div>
-            ))}
-            {/* {JSON.stringify(posts)} */}
-        </div>
+        posts
     )
 }
 
@@ -47,4 +38,4 @@ function DataShow() {
     )
 }
 */
-export default DataShow
+export default DataStore
