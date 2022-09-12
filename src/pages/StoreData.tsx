@@ -17,13 +17,11 @@ function DataStore () {
         setPosts(posts)
         //console.log("--> ", posts)
         posts.forEach(post=> {
-            console.log(post.title)
+            //console.log(post.title)
         });
     }
 
-    return (
-        posts
-    )
+    return posts
 }
 
 /*

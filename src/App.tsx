@@ -29,7 +29,7 @@ function App() {
       <DataDeleteCall/>
       <DataUpdateCall/>
       <DataPost/>
-      <DataShow /> 
+      <DataShow/> 
       {/*
       <ThemeContext.Provider value={
         [{
