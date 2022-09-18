@@ -4,7 +4,7 @@ import List from './components/List'
 import Form from './components/Form'
 //import GetData from './data/GetData';
 //import ThemeContext from './data/DataContext';
-import DataShow from './pages/ShowData'
+import DataShow from './pages/ShowDataView'
 import DataPost from './pages/SendData_post'
 import DataUpdateCall from './pages/SendData_update'
 import DataDeleteCall from './pages/SendData_delete'
@@ -18,7 +18,7 @@ let state = observable({
 autorun(() => {
   console.log(state.name);
 })
-state.name = 'Golf';
+state.name = 'Test';
 
 function App() {
 
