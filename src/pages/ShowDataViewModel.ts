@@ -1,19 +1,19 @@
 import {useContext, useEffect, useState} from "react";
 import { postServiceContext } from '../services/Container'
 import Post from "../interfaces/Post";
-
-//import ThemeContext from './DataContext'
-//import axios from 'axios'
+import { observer } from 'mobx-react';
 
 export interface ShowDataIViewModel {
     posts: Post[],
     submit: () => void,
 }
 
-const ShowDataViewModel = ((): ShowDataIViewModel => {
+//observer needed
+
+const ShowDataViewModel = ( ():ShowDataIViewModel => {
     const postService = useContext(postServiceContext)
     const [posts, setPosts] = useState<Post[]>([{id: 0, userId: 0, title: '', body: ''}])
-    useEffect(() => {                         //use Effect จะถูกใช้เมื่อการ Render Component
+    useEffect(() => {                                                                                       //use Effect จะถูกใช้เมื่อการ Render Component
         test()
     }, [])
 
@@ -22,7 +22,7 @@ const ShowDataViewModel = ((): ShowDataIViewModel => {
         setPosts(posts)
         //console.log("--> ", posts)
         posts.forEach(post=> {
-            //console.log(post.title)
+            console.log(post.title)
         });
     }
 
@@ -30,10 +30,6 @@ const ShowDataViewModel = ((): ShowDataIViewModel => {
 
     return { posts, submit }
 })
-
-// function ShowDataViewModel (): ShowDataIViewModel {                     
-    
-// }
 
 /*
 function DataShow() {
@@ -47,4 +43,6 @@ function DataShow() {
     )
 }
 */
+
+
 export default ShowDataViewModel

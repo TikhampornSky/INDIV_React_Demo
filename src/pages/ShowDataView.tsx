@@ -1,13 +1,13 @@
-import {useContext, useEffect, useState} from "react";
-import { postServiceContext } from '../services/Container'
+// import {useContext, useEffect, useState} from "react";
+// import { postServiceContext } from '../services/Container'
 import Post from "../interfaces/Post";
 import ShowDataViewModel from "./ShowDataViewModel";
+import { observer } from "mobx-react"
 
 // const DataShowHandle2 = observer(() => {
 
 // })
-
-function DataShowHandle () {                     
+const DataShowHandle = observer(() => {              //observer converts React components into derivations of the data they render                
     const viewModel = ShowDataViewModel()
     viewModel.submit()
 
@@ -23,7 +23,7 @@ function DataShowHandle () {
             {/* {JSON.stringify(posts)} */}
         </div>
     )
-}
+})
 
 /*
 function DataShow() {

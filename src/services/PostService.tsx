@@ -1,17 +1,29 @@
 //import {useState, useEffect, createContext} from "react"
 import axios from 'axios'
 import Post from '../interfaces/Post'
-import { makeAutoObservable } from "mobx"
+import { action, makeAutoObservable, observable } from "mobx"
 
 class PostService {
     //const [posts, setPosts] = useState<Post[]>([{id: 0, userId: 0, title: '', body: ''}])
+    title_id = 0
+    response = [{id: 0, userId: 0, title: '', body: ''}]
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this, {
+            response: observable,
+            title_id: observable,              //Marked as observable so MobX can track them
+            toggle: action,                    //Mark any piece of code that ' changes observable's ' as an action. That way MobX can automatically apply transactions for effortless optimal performance.
+            getPosts: action
+        })
+    }
+
+    toggle() {
+        this.title_id = Math.random()
     }
 
     async getPosts(){
-        const response =  await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-        return response.data.slice(0,10)
+        const tmp_response =  await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+        this.response = tmp_response.data.slice(0,10)
+        return this.response
     }
 
     /*
