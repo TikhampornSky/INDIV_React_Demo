@@ -1,14 +1,15 @@
 // import {useContext, useEffect, useState} from "react";
 // import { postServiceContext } from '../services/Container'
 import Post from "../interfaces/Post";
-import ShowDataViewModel from "./ShowDataViewModel";
 import { observer } from "mobx-react"
+import ShowDataClass from '../pages/ShowDataViewModel'
 
 // const DataShowHandle2 = observer(() => {
 
 // })
 const DataShowHandle = observer(() => {              //observer converts React components into derivations of the data they render                
-    const viewModel = ShowDataViewModel()
+    const viewModel_tmp = new ShowDataClass()
+    const viewModel = viewModel_tmp.ShowDataViewModel()
     viewModel.submit()
 
     return (
