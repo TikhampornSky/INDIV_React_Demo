@@ -8,6 +8,11 @@ export interface ShowDataIViewModel {
     submit: () => void,
 }
 class ShowDataClass {
+    postService = useContext(postServiceContext)
+    // state: posts = {
+    //     posts: [{id: 0, userId: 0, title: '', body: ''}]
+    // }
+    
     constructor() {
         makeAutoObservable(this, {
             ShowDataViewModel: action
@@ -15,16 +20,14 @@ class ShowDataClass {
     }
     
     ShowDataViewModel = (():ShowDataIViewModel => {
-        const postService = useContext(postServiceContext)
         const [posts, setPosts] = useState<Post[]>([{id: 0, userId: 0, title: '', body: ''}])
         useEffect(() => {                                                                                       //use Effect จะถูกใช้เมื่อการ Render Component
             test()
         }, [])
     
         const test = async () => {
-            const posts = await postService.getPosts()
+            const posts = await this.postService.getPosts()
             setPosts(posts)
-            //console.log("--> ", posts)
             posts.forEach(post=> {
                 console.log(post.title)
             });
