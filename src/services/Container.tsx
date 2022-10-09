@@ -3,6 +3,5 @@ import PostService from "./PostService";
 
 //Interface 
 
-const postService = new PostService()
-export const postServiceContext = createContext<PostService>(postService)
-export const a = {postService}
+export const postServiceContext = createContext<PostService>(new PostService())
+// export const a = {postService}
