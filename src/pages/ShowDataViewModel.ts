@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Post from "../interfaces/Post";
 import { action, makeAutoObservable, observable } from "mobx"
 import PostService from "../services/PostService";
@@ -23,10 +23,43 @@ class ShowDataViewModel {               //การเขียนจะคล�
         this.posts = [];
     }
 
-    ShowDataViewModelFunction = (() => {   
-        useEffect(() => {                                                                                       //use Effect จะถูกใช้เมื่อการ Render Component
-            this.getPostsDataShow()
-        }, [])
+    /*
+    function Parent() {
+        const [current, setCurrent] = useState(0);
+      useEffect(() => {
+          const someasync = async () => {
+            try { 
+             await asyncCalls(current);
+             setTimeout(() => {
+               setCurrent(current + 1);
+            }, 5000);
+            } catch (e) {
+               alert(e);
+            }
+          }
+          someasync();
+         }, [current, setCurrent]);
+        return ...
+      }
+      */
+    ShowDataViewModelFunction = (() => { 
+        const [current, setCurrent] = useState(0);  
+        useEffect(() => {        
+            const loaded = true;                                                                               //use Effect จะถูกใช้เมื่อการ Render Component
+            const someasync = async () => {
+                try { 
+                    this.getPostsDataShow()
+                    setTimeout(() => {
+                        loaded && setCurrent(current + 1);
+                }, 5000);
+                } catch (e) {
+                   alert(e);
+                }
+              }
+
+            someasync();
+        }, [current, setCurrent]);
+        return
     })
 
     async getPostsDataShow() {

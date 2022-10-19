@@ -15,19 +15,15 @@ const ShowDataHandle = observer(() => {              //observer converts React c
     const [postsView, setPosts] = useState<Post[]>([{id: 0, userId: 0, title: '', body: ''}])  
     const postContext = useContext(containerContext.postService)
     const viewModel = new ShowDataViewModel(postContext)
-    const promise1 = new Promise(() => {
+    new Promise(() => {
         viewModel.ShowDataViewModelFunction()
         console.log("1-->", Date.now())
-    });
-    promise1.then(() => {
+    }).then(() => {
         setPosts(viewModel.getViewPosts())
         console.log("2-->", Date.now())
     }).then(() => {
         console.log("3-->", postsView)
     })
-
-    const tt = viewModel.getViewPosts()
-    console.log(Date.now(), tt)
 
     return (
         <div>
