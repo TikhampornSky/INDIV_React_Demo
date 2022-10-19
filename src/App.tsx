@@ -4,7 +4,8 @@ import List from './components/List'
 import Form from './components/Form'
 //import GetData from './data/GetData';
 //import ThemeContext from './data/DataContext';
-import DataShow from './pages/ShowDataView'
+import ShowDataView from './pages/ShowDataView'
+import ShowDataHandle from './pages/ShowDataView'
 import DataPost from './pages/SendData_post'
 import DataUpdateCall from './pages/SendData_update'
 import DataDeleteCall from './pages/SendData_delete'
@@ -29,7 +30,8 @@ function App() {
       <DataDeleteCall/>
       <DataUpdateCall/>
       <DataPost/>
-      <DataShow/> 
+      <ShowDataHandle />
+      {/* <ShowDataView/> */}
       {/*
       <ThemeContext.Provider value={
         [{
