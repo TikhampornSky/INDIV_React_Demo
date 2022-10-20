@@ -31,7 +31,7 @@ const ShowDataHandle = observer(() => {              //observer converts React c
     console.log(Date.now(), postsView)
 
     return (
-        <ShowDataView/>
+        <ShowDataView viewModel={viewModel}/>
         // <div>
         //     {postsView.map((postData: Post) => (
         //          <div key= {postData.id}>
@@ -45,12 +45,15 @@ const ShowDataHandle = observer(() => {              //observer converts React c
     )
 })
 
+interface ShowDataViewProps {
+    viewModel: ShowDataViewModel
+}
 
-const ShowDataView = observer(() => {           //ส่งจาก dataViewModel มาแสดงผล
-    console.log("----->")
+const ShowDataView = observer(({viewModel}: ShowDataViewProps) => {           //ส่งจาก dataViewModel มาแสดงผล
+    // const { viewModel } = props
     return (
         <div>
-            kkk
+            {/* {viewModel.getViewPosts()} */}
             {/* {postsView.map((postData: Post) => (
                 <div key= {postData.id}>
                     <p>{postData.id} { '-->' } {postData.title}</p>

@@ -4,20 +4,17 @@ import { action, makeAutoObservable, observable } from "mobx"
 import PostService from "../services/PostService";
 
 export interface ShowDataIViewModel {
-    posts: Post[],
-    submit: () => void,
+    getPostsDataShow: () => Post[]
+    getViewPosts: () => Post[]
 }
 
-class ShowDataViewModel {               //การเขียนจะคล้ายๆกับตอนเขียนคลาสของ Service
+class ShowDataViewModel{               //การเขียนจะคล้ายๆกับตอนเขียนคลาสของ Service
     private postService: PostService 
     private posts: Post[]
 
     constructor(postService:PostService) {
-        makeAutoObservable<ShowDataViewModel, "postService" | "posts">(this, {              //Passing the relevant private fields as generic argument
-            postService: observable,
-            posts: observable,                             
-            getPostsDataShow: action
-        })
+        makeAutoObservable(this)
+        
         this.postService = postService;
         this.posts = [];
     }

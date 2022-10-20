@@ -7,12 +7,10 @@ class PostService {
     //const [posts, setPosts] = useState<Post[]>([{id: 0, userId: 0, title: '', body: ''}])
     title_id = 0
     response: Post[]
-    constructor() {
-        makeAutoObservable(this, {
-            response: observable,
-            title_id: observable,              //Marked as observable so MobX can track them
-            getPosts: action                   //Mark any piece of code that ' changes observable's ' as an action. That way MobX can automatically apply transactions for effortless optimal performance.
-        })
+    constructor(
+        userService: UserIService                   //Inversify will be...
+    ) {
+        makeAutoObservable(this)
         this.response = []
     }
 
