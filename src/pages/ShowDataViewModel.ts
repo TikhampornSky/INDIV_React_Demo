@@ -27,12 +27,15 @@ class ShowDataViewModel{               //การเขียนจะคล้
     async getPostsDataShow() {
         const tmpPost =  await this.postService.getPosts()
         this.posts = tmpPost
-        // console.log(Date.now(), this.posts[0].body)
         return this.posts
     }
 
     public getViewPosts() {
         return this.posts
+    }
+
+    public setViewPosts(posts: Post[]) {
+        this.posts = posts
     }
 
 }
