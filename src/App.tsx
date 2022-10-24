@@ -9,6 +9,8 @@ import ShowDataHandle from './pages/ShowDataView'
 import DataPost from './pages/SendData_post'
 import DataUpdateCall from './pages/SendData_update'
 import DataDeleteCall from './pages/SendData_delete'
+// import { inversifyOutput } from './services/inverse_main';
+import ShowInverse from './pages/inverse-show';
 
 import './App.css';
 
@@ -27,10 +29,17 @@ function App() {
 
   return (
     <div className="App">
+      
+      <ShowInverse />
+      <div>
+
+        {/* {JSON.stringify(posts)} */}
+      </div>
+
       <DataDeleteCall/>
       <DataUpdateCall/>
       <DataPost/>
-      < ShowDataHandle />
+      <ShowDataHandle />
       {/* < ShowDataView /> */}
       {/* <ShowDataView/> */}
       {/*
