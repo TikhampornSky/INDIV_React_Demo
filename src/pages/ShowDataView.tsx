@@ -23,25 +23,18 @@ const ShowDataHandle = observer(() => {              //observer converts React c
             // tmp()
         }, [])
     }).then(() => {
-        console.log("------")
+        // console.log("------")
         setPostsView(viewModel.getViewPosts())
-        console.log(postsView)
+        // console.log(postsView)
     })
     
     console.log(Date.now(), postsView)
 
     return (
-        <ShowDataView viewModel={viewModel}/>
-        // <div>
-        //     {postsView.map((postData: Post) => (
-        //          <div key= {postData.id}>
-        //             <p>{postData.id} { '-->' } {postData.title}</p>
-        //             <li> {postData.body} </li>
-        //             <hr></hr>
-        //         </div>            
-        //     ))}
-        //     {/* {JSON.stringify(posts)} */}
-        //  </div>
+        <div>
+            <p> My data is.. </p>
+            <ShowDataView viewModel={viewModel}/>
+        </div>              
     )
 })
 
@@ -50,17 +43,16 @@ interface ShowDataViewProps {
 }
 
 const ShowDataView = observer(({viewModel}: ShowDataViewProps) => {           //ส่งจาก dataViewModel มาแสดงผล
-    // const { viewModel } = props
+    console.log("-->", viewModel.getViewPosts())
     return (
         <div>
-            {/* {viewModel.getViewPosts()} */}
-            {/* {postsView.map((postData: Post) => (
+            {viewModel.getViewPosts().map((postData: Post) => (
                 <div key= {postData.id}>
                     <p>{postData.id} { '-->' } {postData.title}</p>
                     <li> {postData.body} </li>
                 <hr></hr>
             </div>
-            ))} */}
+            ))}
             {/* {JSON.stringify(posts)} */}
         </div>
     )

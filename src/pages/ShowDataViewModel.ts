@@ -1,6 +1,6 @@
 // import {useEffect, useState} from "react";
 import Post from "../interfaces/Post";
-import { action, makeAutoObservable, observable } from "mobx"
+import { makeAutoObservable } from "mobx"
 import PostService from "../services/PostService";
 
 export interface ShowDataIViewModel {
@@ -27,7 +27,7 @@ class ShowDataViewModel{               //การเขียนจะคล้
     async getPostsDataShow() {
         const tmpPost =  await this.postService.getPosts()
         this.posts = tmpPost
-        console.log(Date.now(), this.posts[0].body)
+        // console.log(Date.now(), this.posts[0].body)
         return this.posts
     }
 

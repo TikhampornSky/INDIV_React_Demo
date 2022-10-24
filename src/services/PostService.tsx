@@ -8,7 +8,7 @@ class PostService {
     title_id = 0
     response: Post[]
     constructor(
-        userService: UserIService                   //Inversify will be...
+        //userService: UserIService                   //Inversify will be...
     ) {
         makeAutoObservable(this)
         this.response = []
